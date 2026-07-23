@@ -35,6 +35,12 @@ GO
 CREATE SCHEMA bronze;
 GO
 
+CREATE SCHEMA silver;
+GO
+
+CREATE SCHEMA gold
+GO
+
 -- Create Tables
 -- Check if the table object exists before dropping it.
 -- This makes the script safe to rerun.
@@ -105,10 +111,3 @@ cat						NVARCHAR (50),
 subcat					NVARCHAR (50),
 maintenance				NVARCHAR (50)
 );
-
-
-CREATE SCHEMA silver;
-GO
-
-CREATE SCHEMA gold
-GO
