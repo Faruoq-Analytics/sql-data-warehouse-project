@@ -8,44 +8,59 @@ ________________________________________________________________________________
 ## 1. gold.dim_customers
 
 **Purpose:** Stores customer details enriched with demographic and geographic data.
-**Columns:**
+## Columns:
 
 | Column Name | Data Type | Description |
 |---|---|---|
-| VesselID | INT | Unique identifier for each vessel. |
-| VesselName | VARCHAR(100) | Name of the vessel. |
-| VesselType | VARCHAR(50) | Type or category of the vessel. |
-| IMO_Number | VARCHAR(20) | International Maritime Organization number assigned to the vessel. |
+| customer_key | INT | Surrogate key uniquely identifying each customer record in the dimension table. |
+| customer_id | INT | Unique numerical identifier assigned to each customer. |
+| customer_number | NVARCHAR(50) | Alphanumeric identifier representing the customer, used for tracking and refrencing. |
+| first_name | NVARCHAR(50) | The customer's first name as recorded in the system. |
+| last_name | NVARCHAR(50) | The customer's last name or family name. |
+| country | NVARCHAR(50) | The country of residence of the customer (e.g., 'Australia'). |
+| marital_status | NVARCHAR(50) | The marital status of the customer (e.g. 'Married', 'Single'). |
+| gender | NVARCHAR(50) | The gender of the customer (e.g., 'Male', 'Female', 'n/a'). |
+| birth_date | DATE | The date of birth of the customer, formatted as YYYY-MM-DD (e.g., 1971-10-06). |
+| create_date | DATE | The date and time when the customer record was created in the system. |
 
----
+________________________________________________________________________________________________________________________
 
-## 2. Berth
+## 2. gold.dim_products
 
-**Purpose:** Stores information about berths available in the port.
+**Purpose:** Provides information about the products and their attributes.
+
+### Columns:
+
+| Column Name | Data Type | Description |
+|---|---|---|
+| product_key | INT | Surrogate  |
+| product_id | INT | Un |
+| product_number | NVARCHAR(50) |  |
+| product_name | NVARCHAR(50) |  |
+| category_id | NVARCHAR(50) |  |
+| category | NVARCHAR(50) |  |
+| subcategory | NVARCHAR(50) |  |
+| maintenance | NVARCHAR(50) |  |
+| cost | NVARCHAR(50) |  |
+| product_line | NVARCHAR(50) |  |
+| product_start_date | NVARCHAR(50) |  |
+
+________________________________________________________________________________________________________________________
+
+## 3. gold.fact_sales
+
+**Purpose:**
 
 ### Columns
 
 | Column Name | Data Type | Description |
 |---|---|---|
-| BerthID | INT | Unique identifier for each berth. |
-| BerthCode | VARCHAR(20) | Code used to identify the berth. |
-| BerthName | VARCHAR(100) | Name or description of the berth. |
-
----
-
-## 3. VesselCall
-
-**Purpose:** Stores information about vessel visits to the port, including expected and actual arrival and departure times.
-
-### Columns
-
-| Column Name | Data Type | Description |
-|---|---|---|
-| VesselCallID | INT | Unique identifier for each vessel call. |
-| VoyageNumber | VARCHAR(50) | Identifier assigned to the vessel voyage. |
-| VesselID | INT | Identifies the vessel associated with the call. |
-| BerthID | INT | Identifies the berth assigned to the vessel. |
-| ETA | DATETIME | Expected time of arrival. |
-| ATA | DATETIME | Actual time of arrival. |
-| ETD | DATETIME | Expected time of departure. |
-| ATD | DATETIME | Actual time of departure. |
+| order_number | NVARCHAR(50) |  |
+| product_key | INT |  |
+| customer_key | INT |  |
+| order_date | DATE |  |
+| shipping_date | DATE |  |
+| due_date | DATE |  |
+| sales_amount | INT |  |
+| quantity | INT |  |
+| price | INT |  |
